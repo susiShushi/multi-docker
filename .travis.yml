@@ -10,14 +10,14 @@ script:
     - docker run -e CI=true susishushi/react-test npm test
 
 after_success:
-    - docker build -t sushishushi/multi-client ./client
-    - docker build -t sushishushi/multi-nginx ./nginx
-    - docker build -t sushishushi/multi-server ./server
-    - docker build -t sushishushi/multi-worker ./worker
+    - docker build -t nambaikin/multi-client ./client
+    - docker build -t nambaikin/multi-nginx ./nginx
+    - docker build -t nambaikin/multi-server ./server
+    - docker build -t nambaikin/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to Docker hub 
-    - docker push susishushi/multi-client
-    - docker push susishushi/multi-nginx
-    - docker push susishushi/multi-server
-    - docker push susishushi/multi-worker
+    - docker push nambaikin/multi-client
+    - docker push nambaikin/multi-nginx
+    - docker push nambaikin/multi-server
+    - docker push nambaikin/multi-worker
